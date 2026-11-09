@@ -1,15 +1,18 @@
 # Sync Ops Console
 
-> Full-stack senior demo: **React + Laravel** internal console for async sync jobs.
+React + Laravel console for monitoring async sync jobs: filter by status, inspect failures, and requeue safely.
 
-Clean-room portfolio. Fictional **LedgerBridge Ops** — no employer code or brands.
+## Problem
 
-## What it demonstrates
+Async sync work fails in production. Operators need a simple UI over a clear job API — not SSH and log grepping.
 
-- Laravel JSON API (`/api/jobs`, filter, requeue)
-- React TypeScript UI for operators
-- Job lifecycle modeling for senior backend / full-stack interviews
-- Architecture notes aimed at architect-level discussion
+## Approach
+
+- Laravel JSON API: list / create / requeue jobs
+- React TypeScript UI for triage
+- Job lifecycle: `queued → running → succeeded|failed`
+
+Details: [ARCHITECTURE.md](./ARCHITECTURE.md)
 
 ## Run
 
@@ -28,11 +31,7 @@ npm install
 npm run dev
 ```
 
-Set `VITE_API_URL=http://127.0.0.1:8000/api` if needed (default in App).
-
-## Architecture
-
-See [ARCHITECTURE.md](./ARCHITECTURE.md).
+API default: `http://127.0.0.1:8000/api` (`VITE_API_URL` overrides).
 
 ## Stack
 
